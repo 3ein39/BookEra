@@ -24,6 +24,15 @@ Explore the project's structure and milestones through our Work Breakdown Struct
 
 Understand the database schema and relationships with our Entity-Relationship Diagram (ERD). Dive into the data model ![here](./docs/Database/ERD.png)
 
+### Class Diagram
+
+The class diagram provides a visual representation of the classes in this project, their attributes, methods, and the relationships between them. It is a useful tool for understanding the overall structure of the code and how different components interact with each other.
+
+You can view the class diagram for this project at the following link:
+
+[Class Diagram](./docs/classDigram.png)
+
+
 ### Sequence Diagrams
 
 For detailed insights into the system's interactions, view our Sequence Diagrams [here](./docs/Sequence%20Diagrams/)
