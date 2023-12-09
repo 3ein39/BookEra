@@ -119,12 +119,25 @@ exports.login_get = async (req, res) => {
     res.render('login_form');
 };
 
-exports.login_post = (req, res) => {
-    passport.authenticate('local', {
-        successRedirect: '/',
-        failureRedirect: '/users/login',
-    })(req, res);
+exports.login_post = (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.redirect('/users/login');
+        }
+        req.logIn(user, function(err) {
+            if (err) {
+                return next(err);
+            }
+            // If login is successful, initialize an empty cart in the session
+            req.session.cart = [];
+            return res.redirect('/');
+        });
+    })(req, res, next);
 };
+
 
 // user logout
 exports.logout_get = async (req, res) => {

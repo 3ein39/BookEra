@@ -34,7 +34,7 @@
                         <a href="/users/<%= user._id %>" class="nav-item nav-link"> <%= user.username %> </a>
                         <a href="/users/logout" class="nav-item nav-link">Logout</a>
                         <% if (user.type === 'buyer')  { %>
-                            <a href="/cart"><i class="bi bi-cart nav-item nav-link"></i></a>
+                            <a href="#" id="cart-icon"><i class="bi bi-cart nav-item nav-link"></i></a>
                         <% } %>
                     <% } %>
                 </div>

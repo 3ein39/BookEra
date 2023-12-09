@@ -50,3 +50,18 @@ strong {
   font-weight: bold;
 }
 
+.cart-pane {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    overflow: auto;
+    background-color: #f1f1f1;
+    transition: 0.5s;
+}
+
+.cart-pane.open {
+    width: 300px;
+}
+

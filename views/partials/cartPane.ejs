@@ -1,0 +1,14 @@
+<div id="cart-pane" class="cart-pane">
+    <h1>Your Cart</h1>
+    <% if (cart && cart.length > 0) { %>
+        <% cart.forEach(function(item) { %>
+            <div class="cart-item">
+                <h2><%= item.book.title %></h2>
+                <p>Quantity: <%= item.quantity %></p>
+            </div>
+        <% }) %>
+        <button class="btn btn-primary">Checkout</button>
+    <% } else { %>
+        <p>Your cart is empty.</p>
+    <% } %>
+</div>

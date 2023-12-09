@@ -10,7 +10,8 @@ exports.getAllBooks = async (req, res) => {
     try {
         const books = await Book.find({}).populate('publisher').populate('authors').populate('categories');
         // send books to books.ejs
-        res.render('books', { title: 'Books', books: books });
+        const cart = req.session.cart || [];
+        res.render('books', { title: 'Books', books: books, cart});
     } catch (err) {
         console.log(err);
         res.status(500).json(err);
