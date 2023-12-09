@@ -103,6 +103,7 @@
 }
 
 .button-64 {
+    margin-bottom: 10px;
     position: relative;
     top: 20px;
     align-items: center;
