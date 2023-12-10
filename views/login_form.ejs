@@ -60,9 +60,11 @@
         <form action="/users/login" method="POST">
             <input name="username" placeholder="Username" type="text" />
             <input name="password" placeholder="Password" type="password" />
-            <a role="button" class="button-64" href="/users/signup" style="color: #ffffff; text-align: center" ><span class="text" >Create a new account</span></a>
             <button class="button-64" role="button"><span class="text">Log In</span></button>
-        </form>
-    <% } %>
+        </form><br>
+            <p style="color: white">Do not have an account?  <a href="/users/signup" class="login_link">Signup</a> </p>
+
+
+        <% } %>
 </div>
 </body>

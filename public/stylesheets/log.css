@@ -161,3 +161,11 @@
 .login input[type=password] {
     transition: padding 0.3s ease, font-weight 0.3s ease;
 }
+.login_link{
+    color: #ffffff;
+    font-weight: bold;
+}
+.login_link:hover {
+    text-decoration: underline;
+    color: #008585;
+}
