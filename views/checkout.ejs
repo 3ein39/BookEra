@@ -57,9 +57,8 @@
             </div>
         <% }) %>
             <div class="subtotal">
-                <div class="totalRow final"><span class="label">Wallet Amount</span><span>$<%= wallet_amount %></span></div>
                 <div class="totalRow final"><span class="label">Total:</span><span>$<%= total_price %></span></div>
-                <form action="/orders/create" method="post">
+                <form action="/orders/create" method="post" id="checkoutForm">
                     <button type="submit" class="checkout-button">Checkout</button>
                 </form>
             </div>
@@ -69,7 +68,37 @@
         </div>
     <% } %>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("checkoutForm");
 
+    async function createOrder() {
+        try {
+            const response = await fetch("/orders/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw errorData;
+            }
+
+            const data = await response.json();
+            window.location = data.url;
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission
+        createOrder();
+    });
+});
+</script>
 <script src="/javascripts/main.js"></script>
 </body>
 </html>
