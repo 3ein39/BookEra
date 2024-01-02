@@ -82,6 +82,7 @@ exports.order_create_post = async (req, res) => {
         cart.books = [];
         await cart.save();
 
+        
         res.json({ url: stripe_session.url });
         req.flash('success', 'Order placed successfully');
     } catch (err) {
