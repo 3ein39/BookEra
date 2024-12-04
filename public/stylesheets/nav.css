@@ -13,8 +13,13 @@ nav{
     justify-content: space-between;
     position: relative;
 }
+nav h1{
+    color: #fff;
+    margin-bottom: 0;
+    font-wight: bold;
+}
 .user-pic{
-    width: 60px;
+    width: 50px;
     border-radius: 50%;
     cursor: pointer;
     margin-left: 30px;
@@ -68,6 +73,7 @@ nav ul li a:hover{
 .user-info h3{
     font-weight: 500;
     color: white;
+    margin: 0;
 }
 .user-info img{
     width: 50px;

@@ -32,7 +32,7 @@
     <!-- Book cover image -->
     <div class="preview">
         <div class="imgInfo">
-            <img src="<%= book.cover %>" id="myImage" alt="<%= book.title %> " style="display: none">
+            <img src="<%= book.cover %>" id="myImage" alt="<%= book.title %> " style="display: none;">
             <canvas id="resizer"></canvas>
             <% const stock = book.quantity %>
             <% if( stock > 0 ){ %>
@@ -46,6 +46,11 @@
                     (cart_book) =>
                         cart_book._id.toString() === book._id.toString(),
                 )) { %>
+                    <% if( stock <= 0 ){ %>
+                        <p class="card-text" style="color: #ff0000;margin-bottom: 0; font-size: 20px">Out of stock</p>
+                    <% } else {%>
+                        <p class="card-text" style="color: green;margin-bottom: 0; font-size: 20px">In stock</p>
+                    <% } %>
                     <form action="/carts/<%= book._id %>/addToCart" method="POST">
                     <button type="submit" class="cart mb-1" id="addToCartButton">
                             <div class="pretext">
@@ -80,7 +85,7 @@
 
         </div>
         <div class="description">
-            <h5 class="card-title"><%= book.title %></h5>
+            <h5 class="card-title" style="margin-bottom: 1rem"><%= book.title %></h5>
             <p class="card-text"><strong>Authors:</strong> <%= book.authors.map(author => author.name).join(', ') %></p>
             <p class="card-text"><strong>Description:</strong><%= book.description %></p>
             <p class="card-text">
@@ -153,9 +158,7 @@
             <% } %>
         </div>
 
-            <% if( stock <= 0 ){ %>
-                <p class="card-text" style="color: #ff0000">Out of stock</p>
-            <% } %>
+
 
     </div>
 </div>
